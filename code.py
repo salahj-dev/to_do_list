@@ -10,15 +10,24 @@
 # and it fails (most surely), please increase this counter
 # as a warning for the next person:
 # 
-# total_hours_wasted_here = 189 ITS WOKED NEW FINALY
+# total_hours_wasted_here = 203 
 
 
 
-print("===================| TO==DO==LIST |===================") #hhh just semple designe
-print(" +==================|(●'◡'●)|====================+")
-taskes=["coding","gym","eating","git","github"] # the most important list it has all taskes
+taskes=[] # the most important list it has all taskes
+
+#with open("taskes.txt", "r", encoding="utf-8") as f:    #load taskes
+
+
+
+
+
+
+
 while True : # main while
     # menu
+  print("==================| TO==DO==LIST |=================") #hhh just semple designe
+  print(" +===================|(●'◡'●)|===================+")
   print(" ||             +================+              ||")
   print(" ||             ||1  Add task   ||              ||")
   print(" ||             +================+              ||")
@@ -85,29 +94,31 @@ while True : # main while
 #3  Mark task
     case 3:
       if not taskes:
-        print("                                                      ")
+        print("======================================================")
         print("the list is empty ")
         print("======================================================")
         print("======================================================")
-      elif " ✅" in task:
-        print("this taske was remarked ?")
       else:
         while True:
-          if taskes :
+
             for i , task in enumerate(taskes):
               print(f"{i+1} , {task}")
-          try:
+            try:
               task_num=int(input("enter number by the done task : ")) -1
               if 0<= task_num <len(taskes): 
-                  taskes[task_num] += " ✅"
-                  print(f"the task {task_num +1} was done secsufuly ✅")
+                  if "✅" in taskes[task_num]:
+                    print("this taske alrady marked ?")
+                  else:
+                    taskes[task_num] += "✅"
+                    print(f"the task {task_num +1} was done secsufuly ✅")
               else :
                   print("the number is false ")
-          except ValueError:
+            except ValueError:
               print("enter true number")
-              
-          more1= input("dio need to mark anhother task y/n ; ").upper()
-          if more1== "N":
+            print("======================================================")  
+            more1= input("dio need to mark anhother task y/n ; ").upper()
+            print("======================================================")
+            if more1== "N":
                 break
         print("==================================================")
         print("==================================================")          
@@ -116,7 +127,7 @@ while True : # main while
     case 4:
       if not taskes:
         print("the list is empty ")
-
+      else:
         try:
             task_num=int(input("enter number by the task you want to delete : ")) -1
             if 0<= task_num <len(taskes): 
