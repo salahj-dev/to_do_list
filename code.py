@@ -16,14 +16,15 @@
 
 taskes=[] # the most important list it has all taskes
 
-#with open("taskes.txt", "r", encoding="utf-8") as f:    #load taskes
+try:
+    with open("Taskes.txt", "r", encoding="utf-8") as f:
+        for line in f:
+            taskes.append(line.strip())
 
-
-
-
-
-
-
+except FileNotFoundError:
+    pass
+  
+  
 while True : # main while
     # menu
   print("==================| TO==DO==LIST |=================") #hhh just semple designe
